@@ -2,9 +2,14 @@ import { useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FeedbackContext from '../context/FeedbackContext';
 import FeedbackItem from './FeedbackItem';
+import Spinner from './shared/spinner/Spinner';
 
 function FeedbackList() {
-	const { feedback } = useContext(FeedbackContext);
+	const { feedback, loading } = useContext(FeedbackContext);
+
+	if (loading) {
+		return <Spinner />;
+	}
 
 	if (!feedback || feedback.length === 0) {
 		return <p>No Feedback Submitted</p>;

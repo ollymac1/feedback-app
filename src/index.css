@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+:root {
+	--primary-color: #d803b4;
+	--secondary-color: #1b042e;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -8,13 +13,24 @@
 
 body {
 	font-family: 'Poppins', sans-serif;
-	background-color: #282a46;
+	background-color: var(--secondary-color);
 	color: #fff;
 	line-height: 1.6;
 }
 
 ul {
 	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: var(--primary-color);
+	transition: all 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+	cursor: pointer;
+}
+
+a:hover {
+	opacity: 0.5;
 }
 
 .container {
@@ -87,7 +103,7 @@ header {
 
 .rating li:hover,
 .num-display {
-	background: #ed7966;
+	background: var(--primary-color);
 	color: #fff;
 }
 
@@ -96,7 +112,7 @@ header {
 }
 
 [type='radio']:checked ~ label {
-	background: #ed7966;
+	background: var(--primary-color);
 	color: #fff;
 }
 
@@ -163,7 +179,7 @@ textarea:focus {
 }
 
 .btn-secondary {
-	background: #ed7966;
+	background: var(--primary-color);
 }
 
 .btn:hover {
@@ -185,7 +201,7 @@ textarea:focus {
 .message {
 	padding-top: 10px;
 	text-align: center;
-	color: rebeccapurple;
+	color: var(--secondary-color);
 }
 
 .about-link {
@@ -203,15 +219,33 @@ textarea:focus {
 }
 
 .about-link a:hover {
-	color: #ed7966;
+	color: var(--primary-color);
+}
+.about-section {
+	display: flex;
+	align-items: center;
 }
 
 .about h1 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .about p {
-	margin: 10px 0;
+	margin-bottom: 20px;
+}
+
+.about-section p {
+	margin: 0 10px;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.116);
 }
 
 @media (max-width: 600px) {
@@ -229,15 +263,5 @@ textarea:focus {
 
 	.input-group textarea {
 		width: 80%;
-	}
-
-	.about-link {
-		position: relative;
-		bottom: 10px;
-		display: flex;
-		justify-content: center;
-		padding: 0 10px;
-		color: #fff;
-		cursor: pointer;
 	}
 }

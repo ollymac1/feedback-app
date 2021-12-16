@@ -4,14 +4,21 @@ import PropTypes from 'prop-types';
 import Card from './shared/Card';
 import { IoClose } from 'react-icons/io5';
 import { FaEdit } from 'react-icons/fa';
+import deleteFeedback from '../utils/firebase/deleteFeedback';
 
 function FeedbackItem({ item }) {
-	const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
+	const { editFeedback, setLoading } = useContext(FeedbackContext);
 
 	return (
 		<Card reverse>
 			<div className='num-display'>{item.rating}</div>
-			<button className='close' onClick={() => deleteFeedback(item.id)}>
+			<button
+				className='close'
+				onClick={() => {
+					setLoading(true);
+					deleteFeedback(item.id);
+				}}
+			>
 				<IoClose color='white' />
 			</button>
 			<button onClick={() => editFeedback(item)} className='edit'>

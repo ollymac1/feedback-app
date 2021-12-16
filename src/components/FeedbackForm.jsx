@@ -3,6 +3,9 @@ import FeedbackContext from '../context/FeedbackContext';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
+import addFeedback from '../utils/firebase/addFeedback';
+import updateFeedback from '../utils/firebase/updateFeedback';
+import { Timestamp } from 'firebase/firestore';
 
 function FeedbackForm() {
 	const [text, setText] = useState('');
@@ -10,7 +13,7 @@ function FeedbackForm() {
 	const [btnDisabled, setBtnDisabled] = useState(true);
 	const [message, setMessage] = useState('');
 
-	const { addFeedback, feedbackEdit, updateFeedback } =
+	const { feedbackEdit, setLoading, setFeedbackEdit } =
 		useContext(FeedbackContext);
 
 	const invalidTextLength = text.trim().length <= 10;
@@ -40,14 +43,17 @@ function FeedbackForm() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setLoading(true);
 		if (!invalidTextLength) {
 			const newFeedback = {
 				text,
 				rating,
+				updatedAt: Timestamp.fromDate(new Date()),
 			};
 
 			if (feedbackEdit.edit) {
 				updateFeedback(feedbackEdit.item.id, newFeedback);
+				setFeedbackEdit({ item: {}, edit: false });
 			} else {
 				addFeedback(newFeedback);
 			}
@@ -70,7 +76,7 @@ function FeedbackForm() {
 						className='input'
 					/>
 					<Button isDisabled={btnDisabled} type='submit'>
-						SEND
+						SUBMIT
 					</Button>
 				</div>
 				{message && <div className='message'>{message}</div>}

@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import AboutIconLink from './AboutIconLink';
 
 function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 	const headerStyes = {
@@ -8,11 +10,19 @@ function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 		textTransform: textTransform,
 	};
 
+	const linkStyles = {
+		color: textColor,
+		textDecoration: 'none',
+	};
+
 	return (
 		<header style={headerStyes}>
 			<div className='container'>
-				<h2>{text}</h2>
+				<Link to='/' style={linkStyles}>
+					<h2>{text}</h2>
+				</Link>
 			</div>
+			<AboutIconLink />
 		</header>
 	);
 }
@@ -20,7 +30,7 @@ function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 Header.defaultProps = {
 	text: 'Customer Reviews',
 	bgColor: 'rgba(0,0,0,0.4)',
-	textColor: '#ed7966',
+	textColor: 'var(--primary-color)',
 	letterSpacing: '1px',
 	textTransform: 'uppercase',
 };

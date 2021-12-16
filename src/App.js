@@ -5,7 +5,7 @@ import Header from './components/Header';
 import FeedbackStats from './components/FeedbackStats';
 import FeedbackForm from './components/FeedbackForm';
 import AboutPage from './pages/AboutPage';
-import AboutIconLink from './components/AboutIconLink';
+import Footer from './components/Footer';
 
 function App() {
 	return (
@@ -28,7 +28,7 @@ function App() {
 						<Route path='/about' element={<AboutPage />} />
 					</Routes>
 				</div>
-				<AboutIconLink />
+				<Footer />
 			</Router>
 		</FeedbackProvider>
 	);

@@ -3,14 +3,13 @@
 Created with React
 
 - React Router
-- Context
+- Context API
 - Framer Motion
+- Firebase v9
 
 ## DEMO
 
-View the live demo on Netlify:
-
-[CLICK HERE](https://distracted-bartik-5f3c8f.netlify.app/) to view it in the browser.
+[CLICK HERE](https://distracted-bartik-5f3c8f.netlify.app/) to view a live demo.
 
 ## More work by Brendan
 
