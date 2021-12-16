@@ -10,4 +10,4 @@ Created with React
 
 View the live demo on Netlify:
 
-[HERE](http://localhost:3000) to view it in the browser.
+[HERE](https://distracted-bartik-5f3c8f.netlify.app/) to view it in the browser.
