@@ -10,4 +10,8 @@ Created with React
 
 View the live demo on Netlify:
 
-[HERE](https://distracted-bartik-5f3c8f.netlify.app/) to view it in the browser.
+[CLICK HERE](https://distracted-bartik-5f3c8f.netlify.app/) to view it in the browser.
+
+## More work by Brendan
+
+[brendanmccauley.dev](https://brendanmccauley.dev/)
