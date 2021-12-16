@@ -15,8 +15,8 @@ function FeedbackItem({ item }) {
 			<button
 				className='close'
 				onClick={() => {
-					setLoading(true);
 					deleteFeedback(item.id);
+					setLoading(true);
 				}}
 			>
 				<IoClose color='white' />
