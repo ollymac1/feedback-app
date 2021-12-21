@@ -2,12 +2,21 @@ import { useContext } from 'react';
 import FeedbackContext from '../context/FeedbackContext';
 import PropTypes from 'prop-types';
 import Card from './shared/Card';
-import { IoClose } from 'react-icons/io5';
+import { MdOutlineDeleteForever } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
+import { VscEdit } from 'react-icons/vsc';
+
 import deleteFeedback from '../utils/firebase/deleteFeedback';
+
+const scroll = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 function FeedbackItem({ item }) {
 	const { editFeedback, setLoading } = useContext(FeedbackContext);
+
+	const handleUpdate = () => {
+		scroll();
+		editFeedback(item);
+	};
 
 	return (
 		<Card reverse>
@@ -16,13 +25,12 @@ function FeedbackItem({ item }) {
 				className='close'
 				onClick={() => {
 					deleteFeedback(item.id);
-					setLoading(true);
 				}}
 			>
-				<IoClose color='white' />
+				<MdOutlineDeleteForever />
 			</button>
-			<button onClick={() => editFeedback(item)} className='edit'>
-				<FaEdit color='white' />
+			<button onClick={handleUpdate} className='edit'>
+				<VscEdit />
 			</button>
 			<div className='text-display'>{item.text}</div>
 		</Card>

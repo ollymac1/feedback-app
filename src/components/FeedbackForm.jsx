@@ -62,26 +62,18 @@ function FeedbackForm() {
 		}
 	};
 
-	const handleKeypress = (e) => {
-		console.log(e.keyCode);
-		if (e.keyCode === 13) {
-			handleSubmit();
-		}
-	};
-
 	return (
 		<Card>
 			<form onSubmit={handleSubmit}>
-				<h2>Please rate your service.</h2>
+				<h2>RATE YOUR SERVICE</h2>
 				<RatingSelect select={(rating) => setRating(rating)} />
 				<div className='input-group'>
-					<textarea
+					<input
 						onChange={handleTextChange}
 						type='text'
 						placeholder='Please write a review'
 						value={text}
 						className='input'
-						onKeyPress={handleKeypress}
 					/>
 					<Button isDisabled={btnDisabled} type='submit'>
 						SUBMIT

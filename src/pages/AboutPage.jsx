@@ -8,7 +8,7 @@ function AboutPage() {
 	return (
 		<Card>
 			<div className='about'>
-				<h1>This is a project</h1>
+				<h1>Feedback / Review Mini Project</h1>
 				<p>
 					A simple customer review CRUD app with ⚛️ React.js and 🔥 Firebase v9.
 				</p>

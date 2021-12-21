@@ -1,11 +1,12 @@
 import { useContext } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import { motion, AnimatePresence } from 'framer-motion';
 import FeedbackContext from '../context/FeedbackContext';
 import FeedbackItem from './FeedbackItem';
 import Spinner from './shared/spinner/Spinner';
 
 function FeedbackList() {
-	const { feedback, loading } = useContext(FeedbackContext);
+	let { feedback, loading } = useContext(FeedbackContext);
 
 	if (loading) {
 		return <Spinner />;
@@ -18,15 +19,16 @@ function FeedbackList() {
 		<div className='feedback-list'>
 			<AnimatePresence>
 				{feedback.map((item) => (
-					<motion.div
-						key={item.id}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 0.9 }}
-						exit={{ opacity: 0 }}
-						whileHover={{ scale: 1.01, opacity: 1 }}
-					>
-						<FeedbackItem key={item.id} item={item} />
-					</motion.div>
+					<Fade cascade={true} damping={1} triggerOnce delay={300}>
+						<motion.div
+							key={item.id}
+							animate={{ opacity: 0.8 }}
+							exit={{ opacity: 0 }}
+							whileHover={{ scale: 1.01, opacity: 1 }}
+						>
+							<FeedbackItem key={item.id} item={item} />
+						</motion.div>
+					</Fade>
 				))}
 			</AnimatePresence>
 		</div>

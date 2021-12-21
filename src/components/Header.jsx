@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AboutIconLink from './AboutIconLink';
+import logo from '../assets/img/fox.png';
 
 function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 	const headerStyes = {
@@ -17,9 +18,9 @@ function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 
 	return (
 		<header style={headerStyes}>
-			<div className='container'>
+			<div className='logo-container'>
 				<Link to='/' style={linkStyles}>
-					<h2>{text}</h2>
+					<img className='logo' src={logo} />
 				</Link>
 			</div>
 			<AboutIconLink />
