@@ -8,6 +8,8 @@ import Spinner from './shared/spinner/Spinner';
 function FeedbackList() {
 	let { feedback, loading } = useContext(FeedbackContext);
 
+	feedback = feedback.sort((a, b) => b.updatedAt - a.updatedAt);
+
 	if (loading) {
 		return <Spinner />;
 	}
@@ -19,9 +21,14 @@ function FeedbackList() {
 		<div className='feedback-list'>
 			<AnimatePresence>
 				{feedback.map((item) => (
-					<Fade cascade={true} damping={1} triggerOnce delay={300}>
+					<Fade
+						cascade={true}
+						damping={1}
+						triggerOnce
+						delay={300}
+						key={item.id}
+					>
 						<motion.div
-							key={item.id}
 							animate={{ opacity: 0.8 }}
 							exit={{ opacity: 0 }}
 							whileHover={{ scale: 1.01, opacity: 1 }}

@@ -25,7 +25,7 @@ export const FeedbackProvider = ({ children }) => {
 						updatedAt: item.data().updatedAt.toDate(),
 					})
 				);
-				console.log('Feedback Array: ', data);
+
 				setFeedback(data);
 				setLoading(false);
 			}),

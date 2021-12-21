@@ -152,8 +152,8 @@ header {
 }
 
 .input-group {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 80% auto;
 	border: 1px solid var(--secondary-color);
 	padding: 8px 10px;
 	border-radius: 5px;
@@ -164,7 +164,7 @@ input {
 	flex-grow: 2;
 	border: none;
 	font-size: 16px;
-	width: 1900px;
+	height: 40px;
 }
 
 input:focus {
@@ -179,7 +179,7 @@ input:focus {
 }
 
 .feedback-list {
-	padding-bottom: 25px;
+	padding-bottom: 50px;
 }
 
 .text-display {
@@ -326,6 +326,7 @@ footer:hover {
 	}
 
 	.input-group {
+		display: flex;
 		flex-direction: column;
 	}
 
