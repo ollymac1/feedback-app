@@ -3,6 +3,7 @@ import FeedbackContext from '../context/FeedbackContext';
 import PropTypes from 'prop-types';
 import Card from './shared/Card';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+import dayjs from 'dayjs';
 
 import { VscEdit } from 'react-icons/vsc';
 
@@ -33,6 +34,9 @@ function FeedbackItem({ item }) {
 				<VscEdit />
 			</button>
 			<div className='text-display'>{item.text}</div>
+			<div className='date-display'>
+				Last update: {dayjs(item.updatedAt).format('ddd D MMM YY, hh:mm a')}
+			</div>
 		</Card>
 	);
 }

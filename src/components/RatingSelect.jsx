@@ -15,7 +15,7 @@ function RatingSelect({ select }) {
 		select(+e.currentTarget.value);
 	};
 
-	const maxRating = 10; // Maximum rating a user can select
+	const maxRating = 5; // Maximum rating a user can select
 
 	return (
 		<ul className='rating'>

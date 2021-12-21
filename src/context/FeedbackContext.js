@@ -22,6 +22,7 @@ export const FeedbackProvider = ({ children }) => {
 						id: item.id,
 						rating: item.data().rating,
 						text: item.data().text,
+						updatedAt: item.data().updatedAt.toDate(),
 					})
 				);
 				console.log('Feedback Array: ', data);
