@@ -20,7 +20,7 @@ function Header({ text, bgColor, textColor, letterSpacing, textTransform }) {
 		<header style={headerStyes}>
 			<div className='logo-container'>
 				<Link to='/' style={linkStyles}>
-					<img className='logo' src={logo} />
+					<img alt='fox logo' className='logo' src={logo} />
 				</Link>
 			</div>
 			<AboutIconLink />

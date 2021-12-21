@@ -3,7 +3,7 @@ import FeedbackContext from '../context/FeedbackContext';
 import PropTypes from 'prop-types';
 import Card from './shared/Card';
 import { MdOutlineDeleteForever } from 'react-icons/md';
-import { FaEdit } from 'react-icons/fa';
+
 import { VscEdit } from 'react-icons/vsc';
 
 import deleteFeedback from '../utils/firebase/deleteFeedback';
@@ -11,7 +11,7 @@ import deleteFeedback from '../utils/firebase/deleteFeedback';
 const scroll = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 function FeedbackItem({ item }) {
-	const { editFeedback, setLoading } = useContext(FeedbackContext);
+	const { editFeedback } = useContext(FeedbackContext);
 
 	const handleUpdate = () => {
 		scroll();
