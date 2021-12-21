@@ -62,6 +62,13 @@ function FeedbackForm() {
 		}
 	};
 
+	const handleKeypress = (e) => {
+		console.log(e.keyCode);
+		if (e.keyCode === 13) {
+			handleSubmit();
+		}
+	};
+
 	return (
 		<Card>
 			<form onSubmit={handleSubmit}>
@@ -74,6 +81,7 @@ function FeedbackForm() {
 						placeholder='Please write a review'
 						value={text}
 						className='input'
+						onKeyPress={handleKeypress}
 					/>
 					<Button isDisabled={btnDisabled} type='submit'>
 						SUBMIT

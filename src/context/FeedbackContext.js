@@ -1,5 +1,6 @@
+import { collection, onSnapshot } from '@firebase/firestore';
+import { db } from '../config/firebase';
 import { createContext, useState, useEffect } from 'react';
-import getFeedback from '../utils/firebase/getFeedback';
 
 const FeedbackContext = createContext();
 
@@ -11,15 +12,24 @@ export const FeedbackProvider = ({ children }) => {
 		edit: false,
 	});
 
-	useEffect(() => {
-		async function fetchData() {
-			const feedback = await getFeedback();
-			setFeedback(feedback);
-			setLoading(false);
-		}
-
-		fetchData();
-	}, [loading]);
+	useEffect(
+		() =>
+			onSnapshot(collection(db, 'feedback'), (snapshot) => {
+				setLoading(true);
+				const data = [];
+				snapshot.docs.map((item) =>
+					data.push({
+						id: item.id,
+						rating: item.data().rating,
+						text: item.data().text,
+					})
+				);
+				console.log('Feedback Array: ', data);
+				setFeedback(data);
+				setLoading(false);
+			}),
+		[]
+	);
 
 	//Set Feedback item to be updated
 	const editFeedback = (item) => {
